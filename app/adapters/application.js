@@ -1,6 +1,6 @@
-import DS from 'ember-data';
+import JSONAPIAdapter from 'ember-data/adapters/json-api';
 
-export default class ApplicationAdapter extends DS.JSONAPIAdapter {
+export default class ApplicationAdapter extends JSONAPIAdapter {
 	host =  'https://johnny-appleseed.clientsecure.me'
 	namespace = 'client-portal-api'
 	headers = {

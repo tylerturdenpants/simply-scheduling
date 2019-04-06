@@ -1,11 +1,16 @@
-import EmberRouter from "@ember/routing/router";
-import config from "./config/environment";
+import EmberRouter from '@ember/routing/router';
+import config from './config/environment';
 
 const Router = EmberRouter.extend({
-  location: config.locationType,
-  rootURL: config.rootURL
+	location: config.locationType,
+	rootURL: config.rootURL
 });
 
-Router.map(function() {});
+Router.map(function() {
+	this.route('request-an-appt', function() {
+		this.route('select-a-service');
+		this.route('office-locations');
+	});
+});
 
 export default Router;

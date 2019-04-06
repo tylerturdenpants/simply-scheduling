@@ -1,0 +1,21 @@
+.steps {
+	li + li {
+		margin-top: 1rem;
+	}
+	
+	.disabled {
+		opacity: .25;
+	}
+  }
+  
+.my-collection {
+	margin-left: -.5rem;
+	margin-right: -.5rem;
+	
+	.card {
+		margin-left: .5rem;
+		margin-right: .5rem;
+		width: calc(25% - 1rem);
+	}
+}
+@import "ember-bootstrap/bootstrap";
