@@ -1,7 +1,91 @@
 # simply-scheduling
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+## Technologies Showcased
+
+### Ember Octane
+
+#### Angle Bracket Syntax
+```hbs
+<OfficeList @title="Office Locations">
+  {{#each model as |location|}}
+    <OfficeLocation @location={{location}} />
+  {{/each}}
+</OfficeList>
+```
+
+#### Glimmer Components and Decorators
+```ts
+import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
+
+export default class SidebarStepComponent extends Component {
+  @service appointment
+	
+  get isCurrentStep() {
+    return this.appointment.currentStepNum === this.args.stepNum;
+  }
+}
+```
+
+#### Ember Concurrency Tasks (with decorators)
+```ts
+@task(function* (cId, cptCode) {
+  let offices = yield this.store.query('office', {
+    filter: {
+      clinicianId: cId,
+      cptCodeId: cptCode
+    }
+  });
+  return offices;
+}) fetchOfficeLocations;
+```
+
+#### Element Modifiers
+
+```hbs
+<div {{did-update this.geoencodeAddress}} class="card mb-3">
+  {{#if isLngOrLat}}
+    <GMap 
+      @lat={{this.lat}} 
+      @lng={{this.lng}} 
+      @disableDefaultUI={{true}} @zoomControl={{false}} @minZoom=10 as |g| >
+      <g.marker
+        @lat={{this.lat}}
+        @lng={{this.lng}}
+      />
+    </GMap>
+  {{/if}}
+  <div class="card-body">
+    <div>
+      <div class="h6">{{@location.name}}</div>
+      <p>
+        {{@location.street}}<br>
+        {{@location.city}}, {{@location.state}}, {{@location.zip}}
+        <div class="mt-2">{{@location.phone}}</div>
+      </p>
+    </div>
+    <button 
+      {{on 'click' (action this.goToDateAndTime @location.id) }} 
+      class="btn btn-primary w-100"
+      data-office-id="{{@location.id}}">
+        Select
+    </button>
+  </div>
+</div>
+```
+
+
+### Missing Requirements or Unresolved Questions
+  1. Should the widget respect the browser `back` button?
+  2. Should widget state be capture in the url: `/office-location/3866/date-time/4`?
+  3. Should widget state be capture in query parameters: `/&?cpt=3866&location=58763`?
+  4. Should the widget survive page reloads (2 or 3 could help mitigate)? 
+
+### Architectural Decisions
+  1. Widget is currently coded to use dynamic segments to capture app state
+  2. Like many side-bars, the semantic markup lies outside of the nested routes. We could use things like wormholes, but a service acting like a messaging bus is simpler (less vendor code / smaller bundle)
+  3. Using Glimmer components are lighter and use native classes along with native getters to do `computed properties`.  Tracked properties, or `@tracked` are more ergonomic (no dependent key listing).  Also most computed properties get little benefit from cached calculations and rolling your own is likely to suffice
+  4.
 
 ## Prerequisites
 

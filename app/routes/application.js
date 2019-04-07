@@ -1,11 +1,12 @@
 import Route from '@ember/routing/route';
+import config from 'ember-get-config';
 
 export default class ApplicationRoute extends Route {
 
 	model() {
 		return this.store.query('cpt-code', {
 			filter: {
-				clinicianId: 2
+				clinicianId: config.APP.clinicianID
 			}
 		});
 	}
