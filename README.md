@@ -84,8 +84,7 @@ export default class SidebarStepComponent extends Component {
 ### Architectural Decisions
   1. Widget is currently coded to use dynamic segments to capture app state
   2. Like many side-bars, the semantic markup lies outside of the nested routes. We could use things like wormholes, but a service acting like a messaging bus is simpler (less vendor code / smaller bundle)
-  3. Using Glimmer components are lighter and use native classes along with native getters to do `computed properties`.  Tracked properties, or `@tracked` are more ergonomic (no dependent key listing).  Also most computed properties get little benefit from cached calculations and rolling your own is likely to suffice
-  4.
+  3. Using Glimmer components are lighter and use native classes along with native getters to do `computed properties`.  Tracked properties, or `@tracked` are more ergonomic (no dependent key listing).  Also most computed properties get little benefit from cached calculations and rolling your own is likely to suffice.
 
 ## Prerequisites
 
