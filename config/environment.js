@@ -52,5 +52,15 @@ module.exports = function(environment) {
 
 	}
 
+	ENV['ember-google-maps'] = {
+		key: 'AIzaSyDPBeBUuTouHyW7d8SGpjeyWLEzoqqa74w', // Using .env files in this example
+		language: 'en',
+		region: 'US',
+		protocol: 'https',
+		version: '3.35'
+		// client: undefined,
+		// channel: undefined,
+		// baseUrl: '//maps.googleapis.com/maps/api/js'
+	};
 	return ENV;
 };

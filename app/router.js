@@ -7,10 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-	this.route('request-an-appt', function() {
-		this.route('select-a-service');
-		this.route('office-locations', { path: '/office-locations/:cpt_code' });
-	});
+	this.route('select-a-service');
+	this.route('office-locations', { path: '/office-locations/:cpt_code' });
 });
 
 export default Router;
