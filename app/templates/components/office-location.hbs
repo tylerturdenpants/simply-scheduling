@@ -17,6 +17,6 @@
 				<div class="mt-2">{{@location.phone}}</div>
 			</p>
 		</div>
-		<button class="btn btn-primary w-100" data-office-id="{{@location.id}}">Select</button>
+		<button {{on 'click' (action this.goToDateAndTime @location.id) }} class="btn btn-primary w-100" data-office-id="{{@location.id}}">Select</button>
 	</div>
 </div>

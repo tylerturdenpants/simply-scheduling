@@ -11,8 +11,11 @@ export default class AppointmentService extends Service {
 	}
 
 	removeStep() {
-		this.step = this.steps.slice(0, -1);
+		this.steps = this.steps.slice(0, -1);
 		this.currentStepNum = this.steps.length;
+	}
+	removeSteps(start, deleteCount = 0) {
+		this.steps = [...this.steps.slice(0, start), ...this.steps.slice(start + deleteCount)];
 	}
 
 	start() {

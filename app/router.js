@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
 	this.route('select-a-service');
 	this.route('office-locations', { path: '/office-locations/:cpt_code' });
+	this.route('date-and-time');
 });
 
 export default Router;

@@ -3,21 +3,20 @@
 import Route from '@ember/routing/route';
 import { task } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
-import { htmlSafe } from '@ember/string';
+// import { htmlSafe } from '@ember/string';
 
 export default class OfficeLocationsRoute extends Route {
 	@service appointment
 
 	beforeModel() {
 		if (this.appointment.steps.length === 0) {
-			this.appointment.start();
+			this.transitionTo('index');
+			return;
 		}
 	}
 
 	model({ cpt_code }) {
-		return {
-			locations: this.fetchOfficeLocations.perform(2, cpt_code)
-		};
+		return this.fetchOfficeLocations.perform(2, cpt_code);
 	}
 
 	@task(function* (cId, cptCode) {
@@ -26,11 +25,6 @@ export default class OfficeLocationsRoute extends Route {
 				clinicianId: cId,
 				cptCodeId: cptCode
 			}
-		});
-		let cpt = this.store.peekRecord('cpt-code', cptCode);
-		this.appointment.addStep({
-			num: 2,
-			text: htmlSafe(`${cpt.get('description')}<br> ${cpt.get('duration')} minutes`)
 		});
 		return offices;
 	}) fetchOfficeLocations;

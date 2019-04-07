@@ -2,10 +2,13 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class OfficeLocationComponent extends Component {
 	@service googleMapsApi
 	@service store
+	@service router
+	@service appointment
 
 	@tracked lat
 	@tracked lng
@@ -38,4 +41,12 @@ export default class OfficeLocationComponent extends Component {
 		return this.lat || this.lng;
 	}
 
+	@action
+	goToDateAndTime() {
+		this.appointment.addStep({
+			num: 3,
+			text: 'Santa Monica' // htmlSafe(`${office.get('name')}<br> ${office.get('city')}`)
+		});
+		this.router.transitionTo('date-and-time');
+	}
 }
