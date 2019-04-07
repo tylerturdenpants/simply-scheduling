@@ -1,20 +1,22 @@
 <div class="container-fluid my-3">
 	<section class="header">
 		<div class="d-flex align-items-center">
-			<b>Do some thing</b>
-			<div class="ml-3">At this place</div>
+			<h4><b>Request an Appointment</b></h4>
+			<div class="ml-3">The Therapy Center</div>
 			<button type="button" class="close ml-auto" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
 		<hr>
 	</section>
-
 	<div class="d-flex">
 		<aside class="w-25 pr-3">
 			<SidebarStepper>
-				<SidebarStep/>
-				<SidebarStep/>
+				<SidebarStep @stepNum={{1}} @title="clinician"/>
+				<SidebarStep @stepNum={{2}} @title="select a service" />
+				<SidebarStep @stepNum={{3}} @title="select a location" />
+				<SidebarStep @stepNum={{4}} @title="select date & time" />
+				<SidebarStep @stepNum={{5}} @title="your information" />
 			</SidebarStepper>
 		</aside>
 		<main class="w-75">

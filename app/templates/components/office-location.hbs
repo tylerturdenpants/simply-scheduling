@@ -1,7 +1,13 @@
-{{yield}}
-<div class="card mb-3">
+<div {{did-update this.geoencodeAddress}} class="card mb-3">
 	{{!-- <img src="https://www.fillmurray.com/300/300" alt="Whatever this is" class="card-img-top"> --}}
-	{{g-map lat="51.508530" lng="-0.076132"}}
+	{{#if isLngOrLat}}
+		<GMap @lat={{this.lat}} @lng={{this.lng}} @disableDefaultUI={{true}} @zoomControl={{false}} @minZoom=10 as |g| >
+			<g.marker
+				@lat={{this.lat}}
+				@lng={{this.lng}}
+			/>
+		</GMap>
+	{{/if}}
 	<div class="card-body">
 		<div>
 			<div class="h6">{{@location.name}}</div>

@@ -1,6 +1,9 @@
-<li class="d-flex align-items-center disabled">
-	<div class="badge badge-secondary">5</div>
+<li class="d-flex align-items-start {{this.disabled}}">
+	<div class="badge badge-{{this.color}} mt-1">{{@stepNum}}</div>
 	<div class="ml-3">
-		<div>YOUR INFORMATION</div>
+		<div class="text-uppercase">{{@title}}</div>
+		{{#if this.text}}
+			<div class="text-info">{{this.text}}</div>
+		{{/if}}
 	</div>
 </li>
