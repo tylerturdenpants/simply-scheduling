@@ -1,1 +1,6 @@
+<OfficeList @title="Office Locations">
+	{{#each model.locations.value as |location|}}
+		<OfficeLocation @location={{location}} />
+	{{/each}}
+</OfficeList>
 {{outlet}}

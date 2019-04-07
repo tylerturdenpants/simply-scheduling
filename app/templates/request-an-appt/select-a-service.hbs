@@ -1,1 +1,6 @@
+<ClinicianServiceList @title="Service List">
+	{{#each model.clinicianServices.value as |srvc|}}
+		<ClinicianService @srvc={{srvc}}/>
+	{{/each}}
+</ClinicianServiceList>
 {{outlet}}

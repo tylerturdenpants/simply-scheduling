@@ -11,22 +11,6 @@
 	</section>
 
 	<div class="d-flex">
-		<aside class="w-25 pr-3">
-			<SidebarStepper>
-				<SidebarStep/>
-				<SidebarStep/>
-			</SidebarStepper>
-		</aside>
-
-		<main class="w-75">
-			<ClinicianServiceList @title="Service List">
-				<ClinicianService/>
-				<ClinicianService/>
-			</ClinicianServiceList>
-			<OfficeList @title="Office Locations">
-				<OfficeLocation/>
-				<OfficeLocation/>
-			</OfficeList>
-		</main>
+		{{outlet}}
 	</div>
 </div>
