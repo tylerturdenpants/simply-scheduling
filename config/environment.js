@@ -51,7 +51,7 @@ module.exports = function(environment) {
 
 	// eslint-disable-next-line no-empty
 	if (environment === 'production') {
-
+		ENV.rootURL = '';
 	}
 
 	ENV['ember-google-maps'] = {
