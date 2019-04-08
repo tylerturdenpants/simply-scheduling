@@ -108,9 +108,13 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
+### Yarn usage required! 
+
+This project uses Yarn and the resolution hash to make sure a particular package version is picked over another.  It is suggested to have the latest version of Yarn installed.
+
 * `git clone <repository-url>` this repository
 * `cd simply-scheduling`
-* `npm install`
+* `yarn`
 
 ## Running / Development
 
