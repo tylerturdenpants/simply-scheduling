@@ -73,7 +73,18 @@ export default class SidebarStepComponent extends Component {
   </div>
 </div>
 ```
+### Widget Configuration Parameters
 
+```ts
+// config/environment.js
+let ENV = {
+    APP: {
+      ...
+      clientPortalBaseURL: 'https://johnny-appleseed.clientsecure.me',
+      clinicianID: 2
+    }
+  };
+```
 
 ### Missing Requirements or Unresolved Questions
   1. Should the widget respect the browser `back` button?
